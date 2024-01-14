@@ -36,15 +36,15 @@ const HeroSection = () => {
         />
       </Hidden>
       <Hidden mdDown>
-        <Grid container spacing={2} style={{ marginTop: 50 }}>
+        <Grid container spacing={1} style={{ marginTop: 50 }}>
           <Grid item xs={6}>
             <Image
               src="/assets/Images/Hero-Image-1-desktop.svg"
               alt="Furniture 1"
-              width={62}
-              height={196}
+              width={452}
+              height={616}
               layout="responsive"
-              objectFit="contain"
+              objectFit="fill"
             />
           </Grid>
           <Grid item xs={6} container spacing={2}>
@@ -75,6 +75,7 @@ const HeroSection = () => {
                 width={181}
                 height={196}
                 layout="responsive"
+                objectFit="fill"
               />
             </Grid>
           </Grid>

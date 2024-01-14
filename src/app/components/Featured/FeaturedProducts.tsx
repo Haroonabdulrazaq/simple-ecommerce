@@ -59,7 +59,7 @@ const FeaturedProducts = () => {
             </Typography>
             <Typography variant="body1">
               Defalcate is most focused in helping you discover your most
-              beautiful smile
+              beautiful smile.
             </Typography>
           </Paper>
         </Grid>
