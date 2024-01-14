@@ -56,6 +56,7 @@ const FeaturedPost = () => {
                   zIndex: "5",
                   top: 16,
                   left: 16,
+                  borderRadius: 1,
                 }}
                 color="secondary"
               />

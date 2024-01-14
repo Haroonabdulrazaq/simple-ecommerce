@@ -24,3 +24,22 @@ export const featurePosts = [
     numberOfComments: 13,
   },
 ];
+
+export const featuredProducts = [
+  {
+    title: "Easy Wins",
+    icon: "ShowChartIcon",
+    description: "Get your best looking smile now!",
+  },
+  {
+    title: "Easy Wins",
+    icon: "LocalLibraryIcon",
+    description:
+      "Defalcate is most focused in helping you discover your most beautiful smile",
+  },
+  {
+    title: "Hack Growth",
+    icon: "MenuBookIcon ",
+    description: "Overcome any hurdle or any other problem.",
+  },
+];
