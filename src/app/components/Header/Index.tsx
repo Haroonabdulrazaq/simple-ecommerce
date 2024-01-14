@@ -8,7 +8,7 @@ import MobileHeader from "./MobileHeader";
 const Index = () => {
   return (
     <Grid>
-      <Hidden smDown>
+      <Hidden mdDown>
         <TopHeader />
         <BottomHeader />
       </Hidden>

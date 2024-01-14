@@ -1,7 +1,12 @@
 "use client";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
+import HeroSection from "./components/Hero/HeroSection";
 const Home = () => {
-  return <Typography variant="h2">Hello world</Typography>;
+  return (
+    <Container>
+      <HeroSection />
+    </Container>
+  );
 };
 
 export default Home;
