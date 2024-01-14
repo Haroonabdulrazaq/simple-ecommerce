@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "./components/ThemeRegistry";
-import TopHeader from "./components/Header/TopHeader";
-import BottomHeader from "./page";
+import Header from "./components/Header/Index";
 
 export const metadata: Metadata = {
   title: "Simple E-commerce",
@@ -19,8 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeRegistry>
         <body>
-          <TopHeader />
-          <BottomHeader />
+          <Header />
           {children}
         </body>
       </ThemeRegistry>

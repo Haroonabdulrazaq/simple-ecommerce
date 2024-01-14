@@ -55,7 +55,6 @@ const ActionButton = styled(IconButton)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  border: "1px solid red",
   width: 50,
   height: 50,
   margin: "0 20",
@@ -92,7 +91,9 @@ export default function Home() {
             <ActionButton>
               <FacebookIcon />
             </ActionButton>
-            <TwitterIcon />
+            <ActionButton>
+              <TwitterIcon />
+            </ActionButton>
           </ContentBox>
         </SocialIconBox>
       </StyledTopHeader>
