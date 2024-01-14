@@ -111,8 +111,7 @@ const Index = () => {
             <Grid
               key={image}
               item
-              xs={6}
-              md={4}
+              xs={4}
               sx={{ display: "flex", flexWrap: "wrap" }}
             >
               <Image
