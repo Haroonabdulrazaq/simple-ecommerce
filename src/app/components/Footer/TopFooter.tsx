@@ -29,7 +29,7 @@ const TopFooter = () => {
             height: "30vh",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
             alignItems: "center",
           }}
         >
@@ -47,7 +47,10 @@ const TopFooter = () => {
           >
             Problem trying to resolve the conflict between
           </Typography>
-          <Typography variant="caption" color="#737373">
+          <Typography
+            variant="caption"
+            sx={{ textAlign: "center", color: "#737373" }}
+          >
             Problem trying to resolve the conflict between
           </Typography>
           <Typography
