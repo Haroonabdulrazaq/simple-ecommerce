@@ -34,10 +34,10 @@ const Index = () => {
           sx={{
             width: "100%",
             minHeight: "50vh",
-            padding: 10,
+            padding: 7,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
