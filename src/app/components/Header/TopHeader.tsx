@@ -42,7 +42,7 @@ const SocialIconBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ContentBox = styled(Box)(({ theme }) => ({
+const ContentBox = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

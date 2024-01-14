@@ -44,6 +44,7 @@ const HeroSection = () => {
               width={62}
               height={196}
               layout="responsive"
+              objectFit="contain"
             />
           </Grid>
           <Grid item xs={6} container spacing={2}>
@@ -54,6 +55,7 @@ const HeroSection = () => {
                 width={362}
                 height={296}
                 layout="responsive"
+                objectFit="fill"
               />
             </Grid>
             <Grid item xs={6}>
@@ -63,6 +65,7 @@ const HeroSection = () => {
                 width={181}
                 height={196}
                 layout="responsive"
+                objectFit="fill"
               />
             </Grid>
             <Grid item xs={6}>
