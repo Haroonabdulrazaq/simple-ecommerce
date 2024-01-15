@@ -15,6 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Link from "next/link";
 
 function MobileHeader() {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);

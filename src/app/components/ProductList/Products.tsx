@@ -46,12 +46,15 @@ const Products: React.FC = () => {
         spacing={3}
         sx={{
           width: "100%",
+          minHeight: "50vh",
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        {!isLoading &&
+        {isLoading ? (
+          <Typography>Loading</Typography>
+        ) : (
           productList.products.map((product: Product) => (
             <Grid key={product.id} item xs={12} md={3}>
               <Paper
@@ -99,7 +102,8 @@ const Products: React.FC = () => {
                 </Box>
               </Paper>
             </Grid>
-          ))}
+          ))
+        )}
       </Grid>
       <Button
         sx={{
@@ -111,7 +115,6 @@ const Products: React.FC = () => {
           "&:hover": {
             backgroundColor: "primary.dark",
             color: "white",
-            //border: "none",
           },
         }}
       >
