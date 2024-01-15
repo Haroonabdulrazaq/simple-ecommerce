@@ -106,7 +106,7 @@ const Index = () => {
             </Stack>
           </Box>
         </Grid>
-        <Grid container spacing={2} xs={12} md={6}>
+        <Grid container item spacing={2} xs={12} md={6}>
           {galleryImages.map((image: string) => (
             <Grid
               key={image}

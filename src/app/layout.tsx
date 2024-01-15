@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "./components/ThemeRegistry";
 import Header from "./components/Header/Index";
+import ProviderComponent from "./state/Provider";
 
 export const metadata: Metadata = {
   title: "Simple E-commerce",
@@ -16,12 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeRegistry>
-        <body>
-          <Header />
-          {children}
-        </body>
-      </ThemeRegistry>
+      <ProviderComponent>
+        <ThemeRegistry>
+          <body>
+            <Header />
+            {children}
+          </body>
+        </ThemeRegistry>
+      </ProviderComponent>
     </html>
   );
 }

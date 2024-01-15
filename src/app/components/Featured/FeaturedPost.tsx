@@ -46,7 +46,6 @@ const FeaturedPost = () => {
                 width={50}
                 height={50}
                 layout="responsive"
-                objectFit="contain"
               />
               <Chip
                 label="NEW"

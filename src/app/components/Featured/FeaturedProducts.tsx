@@ -40,7 +40,7 @@ const FeaturedProducts = () => {
           alignItems: "center",
         }}
       >
-        <Grid xs={12} md={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={0} style={{ padding: 16, textAlign: "center" }}>
             <MenuBookIcon sx={{ fontSize: 52, color: "primary.main" }} />
             <Typography variant="h6" component="h3" style={{ marginTop: 8 }}>
@@ -51,7 +51,7 @@ const FeaturedProducts = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid xs={12} md={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={0} style={{ padding: 16, textAlign: "center" }}>
             <LocalLibraryIcon sx={{ fontSize: 52, color: "primary.main" }} />
             <Typography variant="h6" component="h3" style={{ marginTop: 8 }}>
@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid xs={12} md={4}>
+        <Grid item xs={12} md={4}>
           <Paper elevation={0} style={{ padding: 16, textAlign: "center" }}>
             <ShowChartIcon sx={{ fontSize: 52, color: "primary.main" }} />
             <Typography variant="h6" component="h3" style={{ marginTop: 8 }}>

@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Grid, Hidden } from "@mui/material";
 
 const HeroSection = () => {
@@ -44,7 +44,6 @@ const HeroSection = () => {
               width={452}
               height={616}
               layout="responsive"
-              objectFit="fill"
             />
           </Grid>
           <Grid item xs={6} container spacing={2}>
@@ -55,7 +54,6 @@ const HeroSection = () => {
                 width={362}
                 height={296}
                 layout="responsive"
-                objectFit="fill"
               />
             </Grid>
             <Grid item xs={6}>
@@ -65,7 +63,6 @@ const HeroSection = () => {
                 width={181}
                 height={196}
                 layout="responsive"
-                objectFit="fill"
               />
             </Grid>
             <Grid item xs={6}>
@@ -75,7 +72,6 @@ const HeroSection = () => {
                 width={181}
                 height={196}
                 layout="responsive"
-                objectFit="fill"
               />
             </Grid>
           </Grid>

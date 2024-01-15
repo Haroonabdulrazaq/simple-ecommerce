@@ -73,7 +73,7 @@ const BottomFooter: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <LinkGrid xs={12} md={2}>
+        <LinkGrid item xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Company Info
           </Typography>
@@ -82,7 +82,7 @@ const BottomFooter: React.FC = () => {
           <Link href="#">We are hiring</Link>
           <Link href="#">Blog</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={2}>
+        <LinkGrid item xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Legal
           </Typography>
@@ -91,7 +91,7 @@ const BottomFooter: React.FC = () => {
           <Link href="#">We are hiring</Link>
           <Link href="#">Blog</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={2}>
+        <LinkGrid item xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Features
           </Typography>
@@ -100,7 +100,7 @@ const BottomFooter: React.FC = () => {
           <Link href="#">Live Chat</Link>
           <Link href="#">Unlimited Support</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={2}>
+        <LinkGrid item xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Resources
           </Typography>
@@ -110,6 +110,7 @@ const BottomFooter: React.FC = () => {
           <Link href="#">API</Link>
         </LinkGrid>
         <LinkGrid
+          item
           xs={12}
           md={2}
           sx={{
