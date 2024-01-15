@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 
-const TopFooter = () => {
+const TopFooter: React.FC = () => {
   return (
     <Box
       sx={{

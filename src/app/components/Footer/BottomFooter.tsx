@@ -1,4 +1,12 @@
-import { Box, Grid, IconButton, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Link from "next/link";
 import { styled } from "@mui/material/styles";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -6,7 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import React from "react";
 
-const BottomFooter = () => {
+const BottomFooter: React.FC = () => {
   const LinkGrid = styled(Grid)(() => ({
     height: "20vh",
     display: "flex",
@@ -65,7 +73,7 @@ const BottomFooter = () => {
           alignItems: "center",
         }}
       >
-        <LinkGrid xs={12} md={3}>
+        <LinkGrid xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Company Info
           </Typography>
@@ -74,7 +82,7 @@ const BottomFooter = () => {
           <Link href="#">We are hiring</Link>
           <Link href="#">Blog</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={3}>
+        <LinkGrid xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Legal
           </Typography>
@@ -83,7 +91,7 @@ const BottomFooter = () => {
           <Link href="#">We are hiring</Link>
           <Link href="#">Blog</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={3}>
+        <LinkGrid xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Features
           </Typography>
@@ -92,7 +100,7 @@ const BottomFooter = () => {
           <Link href="#">Live Chat</Link>
           <Link href="#">Unlimited Support</Link>
         </LinkGrid>
-        <LinkGrid xs={12} md={3}>
+        <LinkGrid xs={12} md={2}>
           <Typography variant="h6" color="#252B42">
             Resources
           </Typography>
@@ -100,6 +108,57 @@ const BottomFooter = () => {
           <Link href="#">Watch a Demo</Link>
           <Link href="#">Customers</Link>
           <Link href="#">API</Link>
+        </LinkGrid>
+        <LinkGrid
+          xs={12}
+          md={2}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+            backgroundColor: "background.paper",
+          }}
+        >
+          <Typography
+            variant="h6"
+            color="#252B42"
+            sx={{ fontWeight: "bold", marginBottom: 1 }}
+          >
+            Get In Touch
+          </Typography>
+          <Box sx={{ position: "relative" }}>
+            <TextField
+              fullWidth
+              id="email-input"
+              label="Your Email"
+              variant="outlined"
+              sx={{
+                marginBottom: 2,
+                width: "25ch",
+              }}
+            />
+            <Button
+              variant="contained"
+              sx={{
+                marginBottom: 2,
+                backgroundColor: "primary.main",
+                color: "#FFF",
+                padding: 2,
+                position: "absolute",
+                top: 0,
+                right: 0,
+              }}
+            >
+              Subscribe
+            </Button>
+          </Box>
+          <Typography
+            variant="body2"
+            sx={{ color: "text.secondary", fontStyle: "italic" }}
+          >
+            Lorem ipsum dolor sit amet
+          </Typography>
         </LinkGrid>
       </Grid>
       <Paper
