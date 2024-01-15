@@ -11,7 +11,7 @@ const TopFooter = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "top",
-        marginY: 10,
+        marginTop: 10,
       }}
     >
       <Box
