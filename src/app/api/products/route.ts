@@ -1,6 +1,4 @@
-import { NextApiRequest } from "next";
-
-export async function GET(request: NextApiRequest) {
+export async function GET() {
   const response = await fetch("https://dummyjson.com/products?limit=12", {
     headers: {
       "Content-Type": "application/json",

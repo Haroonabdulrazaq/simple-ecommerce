@@ -1,10 +1,10 @@
 export interface Product {
   id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
+  title?: string;
+  description?: string;
+  price?: number;
+  discountPercentage?: number;
+  rating?: number;
   stock: number;
   brand: string;
   category: string;
@@ -17,10 +17,26 @@ export interface ApiResponse {
   skip: number;
   total: number;
 }
+export interface Params {
+  productId: string;
+}
+
+export interface ProductDetailPageProps {
+  params: Params;
+}
+export interface ProductGridProps {
+  productResponse: ApiResponse;
+}
+export interface FetchProductsArgs {
+  limit: number;
+  skip: number;
+}
 export interface InitialState {
   productResponse: ApiResponse;
-  numberOfLimit: number;
+  singleProduct: Product;
   isLoading: boolean;
+  bestSellerProducts: ApiResponse;
+  isLoadingSingleProduct: boolean;
   error: string;
 }
 export type FeaturePost = {

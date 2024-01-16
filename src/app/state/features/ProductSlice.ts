@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialState, Product, ApiResponse } from "@/app/utils/types";
+import {
+  InitialState,
+  Product,
+  FetchProductsArgs,
+  ApiResponse,
+} from "@/app/utils/types";
 
 const initialState: InitialState = {
   productResponse: {
@@ -8,78 +13,80 @@ const initialState: InitialState = {
     skip: 0,
     total: 0,
   },
-  numberOfLimit: 12,
+  singleProduct: {
+    brand: "",
+    category: "",
+    description: "",
+    discountPercentage: 0,
+    id: 0,
+    images: [],
+    price: 0,
+    rating: 0,
+    stock: 0,
+    thumbnail: "",
+    title: "",
+  },
+  bestSellerProducts: {
+    limit: 0,
+    products: [],
+    skip: 0,
+    total: 0,
+  },
   isLoading: true,
+  isLoadingSingleProduct: true,
   error: "",
 };
 
-// export const fetchProducts = createAsyncThunk(
-//   "products/fetchProducts",
-//   async (payload) => {
-//     try {
-//       const response = await fetch("/products", {
-//         body: JSON.stringify(payload),
-//       });
-//       const data = await response.json();
-//       return data;
-//     } catch (error) {
-//       return error;
-//     }
-//   },
-// );
-
-interface FetchProductsArgs {
-  limit: number;
-  skip: number;
-}
-
 export const fetchProducts = createAsyncThunk<
-  // Return type of the payload creator
   any,
-  // First argument to the payload creator
   FetchProductsArgs,
-  // Types for ThunkAPI
   {
     rejectValue: any;
   }
 >("products/fetchProducts", async ({ limit, skip }, { rejectWithValue }) => {
-  // Destructure limit and skip from the payload argument
   try {
-    // Construct the query parameters string
     const queryParams = new URLSearchParams({
       limit: limit.toString(),
       skip: skip.toString(),
     }).toString();
 
-    // Make the fetch request with the query params
-    const response = await fetch(`/products?${queryParams}`);
-
-    // Check if the response is ok
+    const response = await fetch(`/api/products?${queryParams}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
-    // Parse the response data
     const data = await response.json();
     return data;
   } catch (error: any) {
-    // Use rejectWithValue to return a custom error payload
-    return rejectWithValue(error.message || "Something went wrong");
+    return rejectWithValue(error.message);
   }
 });
+export const fetchSingleProduct = createAsyncThunk(
+  "products/fetchSingleProduct",
+  async (payload: string) => {
+    try {
+      const response = await fetch(`/api/products/${payload}`);
+      const data = await response.json();
+
+      return data;
+    } catch (error) {
+      return error;
+    }
+  },
+);
 
 const productsSlice = createSlice({
   name: "productsSlice",
   initialState,
   reducers: {
-    handleLoadMore: (state, action) => {
-      state.numberOfLimit = action.payload;
-    },
     handleProductList: (state, action) => {
       state.productResponse.products = [
         ...state.productResponse.products,
         ...action.payload,
       ];
+    },
+    handleSingleProduct: (state, action) => {
+      state.singleProduct = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -90,6 +97,7 @@ const productsSlice = createSlice({
       fetchProducts.fulfilled,
       (state, action: PayloadAction<ApiResponse>) => {
         state.productResponse.products = action.payload.products;
+        state.bestSellerProducts = action.payload;
         state.isLoading = false;
       },
     );
@@ -100,8 +108,22 @@ const productsSlice = createSlice({
         state.error = action.payload;
       },
     );
+    builder.addCase(fetchSingleProduct.pending, (state) => {
+      state.isLoadingSingleProduct = true;
+    });
+    builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
+      state.isLoadingSingleProduct = false;
+      state.singleProduct = action.payload;
+    });
+    builder.addCase(
+      fetchSingleProduct.rejected,
+      (state, action: PayloadAction<any>) => {
+        state.isLoadingSingleProduct = true;
+        state.error = action.payload.message;
+      },
+    );
   },
 });
 
-export const { handleLoadMore, handleProductList } = productsSlice.actions;
+export const { handleProductList, handleSingleProduct } = productsSlice.actions;
 export default productsSlice;

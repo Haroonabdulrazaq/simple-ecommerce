@@ -5,6 +5,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "@mui/material/styles/styled";
+import Link from "next/link";
 
 const BottomHeaderContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -38,7 +39,9 @@ const BottomHeader = () => {
     <BottomHeaderContainer>
       <Box display="flex" alignItems="center">
         <LogoTypography variant="h6">Bandage</LogoTypography>
-        <NavigationItem>Home</NavigationItem>
+        <NavigationItem>
+          <Link href="/">Home</Link>
+        </NavigationItem>
         <NavigationItem>
           Shop <ExpandMoreIcon />
         </NavigationItem>

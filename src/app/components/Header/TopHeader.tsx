@@ -1,5 +1,5 @@
 "use client";
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, Hidden, IconButton, Typography } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -61,7 +61,9 @@ export default function Home() {
             michelle.rivera@example.com
           </ContentBox>
         </ContentBox>
-        <Typography>Follow us and get a chance to win 80% off</Typography>
+        <Hidden mdDown>
+          <Typography>Follow us and get a chance to win 80% off</Typography>
+        </Hidden>
         <SocialIconBox>
           <ContentBox>
             Follow Us :{" "}
