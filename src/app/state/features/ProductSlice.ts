@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   InitialState,
-  Product,
   FetchProductsArgs,
   ApiResponse,
 } from "@/app/utils/types";
@@ -34,6 +33,8 @@ const initialState: InitialState = {
   },
   isLoading: true,
   isLoadingSingleProduct: true,
+  wishList: [],
+  cartItemList: [],
   error: "",
 };
 
@@ -88,6 +89,12 @@ const productsSlice = createSlice({
     handleSingleProduct: (state, action) => {
       state.singleProduct = action.payload;
     },
+    addToWishList: (state, action) => {
+      state.wishList = action.payload;
+    },
+    addToCart: (state, action) => {
+      state.cartItemList = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -125,5 +132,10 @@ const productsSlice = createSlice({
   },
 });
 
-export const { handleProductList, handleSingleProduct } = productsSlice.actions;
+export const {
+  handleProductList,
+  handleSingleProduct,
+  addToWishList,
+  addToCart,
+} = productsSlice.actions;
 export default productsSlice;

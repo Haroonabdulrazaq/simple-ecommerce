@@ -38,6 +38,8 @@ export interface InitialState {
   bestSellerProducts: ApiResponse;
   isLoadingSingleProduct: boolean;
   error: string;
+  wishList: Product[];
+  cartItemList: Product[];
 }
 export type FeaturePost = {
   number: number;

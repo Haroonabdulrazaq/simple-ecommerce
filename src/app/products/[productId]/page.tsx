@@ -4,6 +4,7 @@ import {
   Box,
   Breadcrumbs,
   Button,
+  CircularProgress,
   Container,
   Grid,
   IconButton,
@@ -15,13 +16,17 @@ import {
   styled,
 } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { ProductDetailPageProps } from "@/app/utils/types";
 import { useAppDispatch } from "@/app/state/store";
 import {
   fetchProducts,
   fetchSingleProduct,
+  addToWishList,
+  addToCart,
 } from "@/app/state/features/ProductSlice";
 import { useSelector } from "react-redux";
 import Image from "next/image";
@@ -33,6 +38,8 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
   let { productId } = params;
   const dispatch = useAppDispatch();
   const [value, setValue] = React.useState("Review (0)");
+  const [isWish, setIsWish] = useState(false);
+  const [isCart, setIsCart] = useState(false);
   const {
     isLoading,
     isLoadingSingleProduct,
@@ -49,6 +56,14 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  const handleWishList = () => {
+    setIsWish(!isWish);
+    dispatch(addToWishList(productId));
+  };
+  const handleCart = () => {
+    setIsCart(!isCart);
+    dispatch(addToCart(productId));
+  };
 
   const BrandGrid = styled(Grid)(() => ({
     width: "100%",
@@ -58,10 +73,13 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
     alignItems: "center",
     margin: "100px",
   }));
-  console.log("bestSellerProducts", bestSellerProducts);
 
   if (isLoadingSingleProduct) {
-    return <Typography>loadings...</Typography>;
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
   }
   return (
     <Container>
@@ -195,11 +213,19 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
               >
                 Select Options
               </Button>
-              <IconButton aria-label="add to favorites">
-                <FavoriteBorderIcon />
+              <IconButton
+                aria-label="add to favorites"
+                onClick={handleWishList}
+                sx={{ color: isWish ? "secondary.main" : "default" }}
+              >
+                {isWish ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               </IconButton>
-              <IconButton aria-label="add to cart">
-                <ShoppingCartIcon />
+              <IconButton
+                aria-label="add to cart"
+                onClick={handleCart}
+                sx={{ color: isCart ? "secondary.main" : "default" }}
+              >
+                {isCart ? <ShoppingCartIcon /> : <RemoveShoppingCartIcon />}
               </IconButton>
               <IconButton aria-label="share">
                 <RemoveRedEyeIcon />

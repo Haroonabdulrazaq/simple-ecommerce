@@ -6,7 +6,14 @@ import {
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/app/state/store";
 import { Product } from "@/app/utils/types";
-import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import ProductGrid from "./ProductGrid";
 
 const Products: React.FC = () => {
@@ -73,7 +80,13 @@ const Products: React.FC = () => {
           The best you can get for lowest price always!
         </Typography>
       </Box>
-      {!isLoading && <ProductGrid productResponse={productResponse} />}
+      {isLoading ? (
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        <ProductGrid productResponse={productResponse} />
+      )}
       {hasMore && (
         <Button
           sx={{
