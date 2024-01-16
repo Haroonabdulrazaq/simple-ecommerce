@@ -11,13 +11,18 @@ export interface Product {
   thumbnail: string;
   images: string[];
 }
-
+export interface ApiResponse {
+  limit: number;
+  products: Product[];
+  skip: number;
+  total: number;
+}
 export interface InitialState {
-  productList: Product[];
+  productResponse: ApiResponse;
+  numberOfLimit: number;
   isLoading: boolean;
   error: string;
 }
-
 export type FeaturePost = {
   number: number;
   postDate: string;
