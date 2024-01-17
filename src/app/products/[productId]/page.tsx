@@ -95,10 +95,14 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
   const BrandGrid = styled(Grid)(() => ({
     width: "100%",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
     margin: "100px 0",
+    "@media (min-width: 600px)": {
+      flexDirection: "row",
+      justifyContent: "spaace-around",
+    },
   }));
 
   if (isLoadingSingleProduct) {
@@ -239,17 +243,22 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
             >
               <Button
                 sx={{
-                  width: "200px",
-                  padding: "10px",
+                  fontSize: "12px",
+                  height: "100%",
                   color: "#FFFFFF",
                   backgroundColor: "primary.main",
-                  marginRight: "20px",
                   "&:hover": {
                     backgroundColor: "primary.dark",
                   },
+                  "@media (min-width: 600px)": {
+                    width: "200px",
+                    marginRight: "20px",
+                    padding: "10px",
+                    fontSize: "15px",
+                  },
                 }}
               >
-                Select Options
+                Select
               </Button>
               <IconButton
                 aria-label="add to favorites"
@@ -324,7 +333,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         <Grid item xs={12} md={6}>
           <Box sx={{ width: "100%", height: "auto" }}>
             <Image
-              src="/assets/Images/wall-art.svg"
+              src="/assets/Images/wall-art.webp"
               alt="Product Image"
               priority
               width={500}
@@ -340,46 +349,55 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         <Typography variant="h6">BEST SELLER PRODUCT</Typography>
       </Paper>
       {!isLoading && <ProductGrid productResponse={bestSellerProducts} />}
-      <BrandGrid item xs={12}>
-        <Image
-          src={"/assets/Images/brand-1.webp"}
-          alt="brand-1"
-          width={100}
-          height={100}
-        />
-
-        <Image
-          src={"/assets/Images/brand-2.webp"}
-          alt="brand-2"
-          width={100}
-          height={100}
-        />
-
-        <Image
-          src={"/assets/Images/brand-3.webp"}
-          alt="brand-3"
-          width={100}
-          height={100}
-        />
-
-        <Image
-          src={"/assets/Images/brand-4.webp"}
-          alt="brand-4"
-          width={100}
-          height={100}
-        />
-        <Image
-          src={"/assets/Images/brand-5.webp"}
-          alt="brand-5"
-          width={100}
-          height={100}
-        />
-        <Image
-          src={"/assets/Images/brand-6.webp"}
-          alt="brand-6"
-          width={100}
-          height={100}
-        />
+      <BrandGrid container>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-1.webp"}
+            alt="brand-1"
+            width={100}
+            height={100}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-2.webp"}
+            alt="brand-2"
+            width={100}
+            height={100}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-3.webp"}
+            alt="brand-3"
+            width={100}
+            height={100}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-4.webp"}
+            alt="brand-4"
+            width={100}
+            height={100}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-5.webp"}
+            alt="brand-5"
+            width={100}
+            height={100}
+          />
+        </Grid>
+        <Grid item xs={12} md={2}>
+          <Image
+            src={"/assets/Images/brand-6.webp"}
+            alt="brand-6"
+            width={100}
+            height={100}
+          />
+        </Grid>
       </BrandGrid>
       <BottomFooter />
     </Container>
