@@ -35,7 +35,6 @@ const initialState: InitialState = {
   isLoadingSingleProduct: true,
   wishList: [],
   cartItemList: [],
-  isCart: false,
   error: "",
 };
 
