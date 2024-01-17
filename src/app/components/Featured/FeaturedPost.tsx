@@ -41,7 +41,7 @@ const FeaturedPost = () => {
               }}
             >
               <Image
-                src={`/assets/Images/Feature-Post-${item.number}.svg`}
+                src={`/assets/Images/Feature-Post-${item.number}.webp`}
                 alt={`Featured Post ${item.number}`}
                 width={50}
                 height={50}

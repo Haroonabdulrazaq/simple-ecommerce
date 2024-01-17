@@ -33,7 +33,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## 📷 Screenshot
 
-![screenshot](./assets/Images/simple-ecommerce-project.png)
+![screenshot](./public/assets/Images/simple-ecommerce-project.png)
 
 ## Live URL 🚀
 
