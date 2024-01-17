@@ -66,7 +66,7 @@ const Index = () => {
               alignItems="center"
             >
               <Avatar
-                src="/assets/Images/circle-image.svg"
+                src="/assets/Images/circle-image.webp"
                 alt="Profile"
                 sx={{ width: 100, height: 100 }}
               />
@@ -115,7 +115,7 @@ const Index = () => {
               sx={{ display: "flex", flexWrap: "wrap" }}
             >
               <Image
-                src={`/assets/Images/${image}.svg`}
+                src={`/assets/Images/${image}.webp`}
                 width={130}
                 height={130}
                 alt={`Grid-${image}`}

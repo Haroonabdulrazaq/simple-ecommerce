@@ -7,7 +7,7 @@ const TopFooter: React.FC = () => {
       sx={{
         width: "100%",
         height: "60vh",
-        backgroundImage: 'url("/assets/Images/cta-image.svg")',
+        backgroundImage: 'url("/assets/Images/cta-image.webp")',
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "top",

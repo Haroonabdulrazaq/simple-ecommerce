@@ -98,7 +98,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    margin: "100px",
+    margin: "100px 0",
   }));
 
   if (isLoadingSingleProduct) {
@@ -340,42 +340,42 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         <Typography variant="h6">BEST SELLER PRODUCT</Typography>
       </Paper>
       {!isLoading && <ProductGrid productResponse={bestSellerProducts} />}
-      <BrandGrid item xs={12} md={12}>
+      <BrandGrid item xs={12}>
         <Image
-          src={"/assets/Images/brand-1.svg"}
+          src={"/assets/Images/brand-1.webp"}
           alt="brand-1"
           width={100}
           height={100}
         />
 
         <Image
-          src={"/assets/Images/brand-2.svg"}
+          src={"/assets/Images/brand-2.webp"}
           alt="brand-2"
           width={100}
           height={100}
         />
 
         <Image
-          src={"/assets/Images/brand-3.svg"}
+          src={"/assets/Images/brand-3.webp"}
           alt="brand-3"
           width={100}
           height={100}
         />
 
         <Image
-          src={"/assets/Images/brand-4.svg"}
+          src={"/assets/Images/brand-4.webp"}
           alt="brand-4"
           width={100}
           height={100}
         />
         <Image
-          src={"/assets/Images/brand-5.svg"}
+          src={"/assets/Images/brand-5.webp"}
           alt="brand-5"
           width={100}
           height={100}
         />
         <Image
-          src={"/assets/Images/brand-6.svg"}
+          src={"/assets/Images/brand-6.webp"}
           alt="brand-6"
           width={100}
           height={100}
