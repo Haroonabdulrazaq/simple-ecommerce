@@ -40,6 +40,7 @@ export interface InitialState {
   error: string;
   wishList: Product[];
   cartItemList: Product[];
+  isCart: boolean;
 }
 export type FeaturePost = {
   number: number;

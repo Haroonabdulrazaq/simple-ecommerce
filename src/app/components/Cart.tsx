@@ -35,7 +35,7 @@ const CartComponent: React.FC<DialogProps> = ({
     <div>
       <Dialog open={openDialog} onClose={handleCloseDialog}>
         <DialogTitle>
-          {cartItemList?.length} {"Item in Cart"}
+          {cartItemList?.length} {"Item(s) in Cart "}
           <ShoppingCartIcon />
         </DialogTitle>
         <DialogContent>

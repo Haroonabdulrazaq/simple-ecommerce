@@ -116,10 +116,9 @@ const Index = () => {
             >
               <Image
                 src={`/assets/Images/${image}.svg`}
-                width={5}
-                height={5}
+                width={130}
+                height={130}
                 alt={`Grid-${image}`}
-                layout="responsive"
               />
             </Grid>
           ))}

@@ -326,9 +326,14 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
             <Image
               src="/assets/Images/wall-art.svg"
               alt="Product Image"
+              priority
               width={500}
-              height={300}
-              layout="responsive"
+              height={500}
+              style={{
+                // width: "100%",
+                // height: "30vh",
+                objectFit: "contain",
+              }}
             />
           </Box>
         </Grid>
@@ -337,25 +342,28 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         <Typography variant="h6">BEST SELLER PRODUCT</Typography>
       </Paper>
       {!isLoading && <ProductGrid productResponse={bestSellerProducts} />}
-      <BrandGrid item xs={12}>
+      <BrandGrid item xs={12} md={12}>
         <Image
           src={"/assets/Images/brand-1.svg"}
           alt="brand-1"
           width={100}
           height={100}
         />
+
         <Image
           src={"/assets/Images/brand-2.svg"}
           alt="brand-2"
           width={100}
           height={100}
         />
+
         <Image
           src={"/assets/Images/brand-3.svg"}
           alt="brand-3"
           width={100}
           height={100}
         />
+
         <Image
           src={"/assets/Images/brand-4.svg"}
           alt="brand-4"
