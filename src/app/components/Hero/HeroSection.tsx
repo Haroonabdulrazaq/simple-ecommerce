@@ -8,28 +8,28 @@ const HeroSection = () => {
     <div id="HeroSection">
       <Hidden mdUp>
         <Image
-          src="/assets/Images/Hero-Image-1-mobile.svg"
+          src="/assets/Images/Hero-Image-1-mobile.webp"
           alt="Hero Image 1"
           width={263}
           height={859}
           layout="responsive"
         />
         <Image
-          src="/assets/Images/Hero-Image-2-mobile.svg"
+          src="/assets/Images/Hero-Image-2-mobile.webp"
           alt="Hero Image 2"
           width={263}
           height={859}
           layout="responsive"
         />
         <Image
-          src="/assets/Images/Hero-Image-3-mobile.svg"
+          src="/assets/Images/Hero-Image-3-mobile.webp"
           alt="Hero Image 3"
           width={263}
           height={859}
           layout="responsive"
         />
         <Image
-          src="/assets/Images/Hero-Image-4-mobile.svg"
+          src="/assets/Images/Hero-Image-4-mobile.webp"
           alt="Hero Image 4"
           width={263}
           height={859}
@@ -40,7 +40,7 @@ const HeroSection = () => {
         <Grid container spacing={1} style={{ marginTop: 50 }}>
           <Grid item xs={6} sx={{ position: "relative" }}>
             <Image
-              src="/assets/Images/Hero-Image-1-desktop.svg"
+              src="/assets/Images/Hero-Image-1-desktop.webp"
               alt="Furniture 1"
               width={452}
               height={616}
@@ -74,7 +74,7 @@ const HeroSection = () => {
           <Grid item xs={6} container spacing={2}>
             <Grid item xs={12} sx={{ position: "relative" }}>
               <Image
-                src="/assets/Images/Hero-Image-2-desktop.svg"
+                src="/assets/Images/Hero-Image-2-desktop.webp"
                 alt="Furniture 2"
                 width={362}
                 height={296}
@@ -107,7 +107,7 @@ const HeroSection = () => {
             </Grid>
             <Grid item xs={6} sx={{ position: "relative" }}>
               <Image
-                src="/assets/Images/Hero-Image-3-desktop.svg"
+                src="/assets/Images/Hero-Image-3-desktop.webp"
                 alt="Furniture 3"
                 width={181}
                 height={196}
@@ -140,7 +140,7 @@ const HeroSection = () => {
             </Grid>
             <Grid item xs={6} sx={{ position: "relative" }}>
               <Image
-                src="/assets/Images/Hero-Image-4-desktop.svg"
+                src="/assets/Images/Hero-Image-4-desktop.webp"
                 alt="Furniture 4"
                 width={181}
                 height={196}
