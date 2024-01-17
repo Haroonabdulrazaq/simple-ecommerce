@@ -28,6 +28,8 @@ import {
   fetchSingleProduct,
   addToWishList,
   addToCart,
+  removeFromWishList,
+  removeFromCart,
 } from "@/app/state/features/ProductSlice";
 import { useSelector } from "react-redux";
 import Image from "next/image";
@@ -48,6 +50,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
     isLoadingSingleProduct,
     singleProduct,
     bestSellerProducts,
+    wishList,
   } = useSelector((state: any) => state.products);
 
   useEffect(() => {
@@ -56,20 +59,32 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
       dispatch(fetchProducts({ limit: 12, skip: 0 }));
     }
   }, [dispatch, productId]);
+
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   const handleWishList = () => {
-    setIsWish(!isWish);
+    setIsWish(true);
     setSnackIsOpen(true);
-    dispatch(addToWishList(productId));
+    dispatch(addToWishList(singleProduct));
+  };
+  const removeWishItem = () => {
+    setIsWish(false);
+    setSnackIsOpen(true);
+    dispatch(removeFromWishList(productId));
   };
   const handleCart = () => {
-    setIsCart(!isCart);
+    setIsCart(true);
     setCartSnackIsOpen(true);
-    dispatch(addToCart(productId));
+    dispatch(addToCart(singleProduct));
   };
+  const removeCartItem = () => {
+    setIsCart(false);
+    setCartSnackIsOpen(true);
+    dispatch(removeFromCart(productId));
+  };
+
   const handleCloseSnack = () => {
     setSnackIsOpen(false);
   };
@@ -178,7 +193,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
                   style={{
                     height: "24px",
                     width: "24px",
-                    backgroundColor: "blue",
+                    backgroundColor: "#E77C40",
                     borderRadius: "50%",
                   }}
                 />
@@ -188,7 +203,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
                   style={{
                     height: "24px",
                     width: "24px",
-                    backgroundColor: "green",
+                    backgroundColor: "#23A6F0",
                     borderRadius: "50%",
                   }}
                 />
@@ -238,7 +253,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
               </Button>
               <IconButton
                 aria-label="add to favorites"
-                onClick={handleWishList}
+                onClick={!isWish ? handleWishList : removeWishItem}
                 sx={{ color: isWish ? "secondary.main" : "default" }}
               >
                 {isWish ? <FavoriteIcon /> : <FavoriteBorderIcon />}
@@ -252,12 +267,12 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
               </IconButton>
               <IconButton
                 aria-label="add to cart"
-                onClick={handleCart}
+                onClick={!isCart ? handleCart : removeCartItem}
                 sx={{ color: isCart ? "secondary.main" : "default" }}
               >
                 {isCart ? <ShoppingCartIcon /> : <RemoveShoppingCartIcon />}
                 <SimpleSnackbar
-                  text={isCart ? "Added to favorite" : "Removed from favorite"}
+                  text={isCart ? "Added to Cart" : "Removed from Cart"}
                   openSnack={snackCartIsOpen}
                   handleClose={handleCloseCartSnack}
                 />
@@ -322,7 +337,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
         <Typography variant="h6">BEST SELLER PRODUCT</Typography>
       </Paper>
       {!isLoading && <ProductGrid productResponse={bestSellerProducts} />}
-
       <BrandGrid item xs={12}>
         <Image
           src={"/assets/Images/brand-1.svg"}
