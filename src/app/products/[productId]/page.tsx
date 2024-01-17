@@ -22,6 +22,7 @@ import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { ProductDetailPageProps } from "@/app/utils/types";
 import { useAppDispatch } from "@/app/state/store";
+import SimpleSnackbar from "@/app/components/SnackBar";
 import {
   fetchProducts,
   fetchSingleProduct,
@@ -40,6 +41,8 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
   const [value, setValue] = React.useState("Review (0)");
   const [isWish, setIsWish] = useState(false);
   const [isCart, setIsCart] = useState(false);
+  const [snackIsOpen, setSnackIsOpen] = React.useState(false);
+  const [snackCartIsOpen, setCartSnackIsOpen] = React.useState(false);
   const {
     isLoading,
     isLoadingSingleProduct,
@@ -56,13 +59,22 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
   const handleWishList = () => {
     setIsWish(!isWish);
+    setSnackIsOpen(true);
     dispatch(addToWishList(productId));
   };
   const handleCart = () => {
     setIsCart(!isCart);
+    setCartSnackIsOpen(true);
     dispatch(addToCart(productId));
+  };
+  const handleCloseSnack = () => {
+    setSnackIsOpen(false);
+  };
+  const handleCloseCartSnack = () => {
+    setCartSnackIsOpen(false);
   };
 
   const BrandGrid = styled(Grid)(() => ({
@@ -76,13 +88,24 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
 
   if (isLoadingSingleProduct) {
     return (
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
         <CircularProgress />
       </Box>
     );
   }
   return (
-    <Container>
+    <Container
+      sx={{
+        minHeight: "100vh",
+      }}
+    >
       <Grid
         container
         spacing={2}
@@ -219,6 +242,13 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
                 sx={{ color: isWish ? "secondary.main" : "default" }}
               >
                 {isWish ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                <SimpleSnackbar
+                  text={
+                    isWish ? "Added to wish list" : "Removed from wish list"
+                  }
+                  openSnack={snackIsOpen}
+                  handleClose={handleCloseSnack}
+                />
               </IconButton>
               <IconButton
                 aria-label="add to cart"
@@ -226,6 +256,11 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
                 sx={{ color: isCart ? "secondary.main" : "default" }}
               >
                 {isCart ? <ShoppingCartIcon /> : <RemoveShoppingCartIcon />}
+                <SimpleSnackbar
+                  text={isCart ? "Added to favorite" : "Removed from favorite"}
+                  openSnack={snackCartIsOpen}
+                  handleClose={handleCloseCartSnack}
+                />
               </IconButton>
               <IconButton aria-label="share">
                 <RemoveRedEyeIcon />
@@ -253,7 +288,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
           }}
         >
           <Typography variant="h4" gutterBottom>
-            the quick fox jumps over
+            The quick fox jumps over
           </Typography>
           <Typography variant="body1">
             Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
