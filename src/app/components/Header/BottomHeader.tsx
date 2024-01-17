@@ -5,6 +5,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "@mui/material/styles/styled";
+import Link from "next/link";
+import WishList from "../WishList";
+import { useState } from "react";
+import CartComponent from "../Cart";
 
 const BottomHeaderContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -34,11 +38,28 @@ const ActionButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const BottomHeader = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [openCartDialog, setOpenCartDialog] = useState(false);
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+  const handleOpenCartDialog = () => {
+    setOpenCartDialog(true);
+  };
+  const handleCloseCartDialog = () => {
+    setOpenCartDialog(false);
+  };
   return (
     <BottomHeaderContainer>
       <Box display="flex" alignItems="center">
         <LogoTypography variant="h6">Bandage</LogoTypography>
-        <NavigationItem>Home</NavigationItem>
+        <NavigationItem>
+          <Link href="/">Home</Link>
+        </NavigationItem>
         <NavigationItem>
           Shop <ExpandMoreIcon />
         </NavigationItem>
@@ -55,11 +76,19 @@ const BottomHeader = () => {
           <SearchIcon />
         </ActionButton>
         <ActionButton>
-          <ShoppingCartIcon />
+          <ShoppingCartIcon onClick={handleOpenCartDialog} />
         </ActionButton>
-        <ActionButton>
+        <ActionButton onClick={handleOpenDialog}>
           <FavoriteBorderIcon />
         </ActionButton>
+        <WishList
+          handleCloseDialog={handleCloseDialog}
+          openDialog={openDialog}
+        />
+        <CartComponent
+          handleCloseDialog={handleCloseCartDialog}
+          openDialog={openCartDialog}
+        />
       </Box>
     </BottomHeaderContainer>
   );

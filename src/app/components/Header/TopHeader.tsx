@@ -1,12 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Grid,
-  Hidden,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Hidden, IconButton, Typography } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -30,7 +23,6 @@ const theme = createTheme({
 const StyledTopHeader = styled(Grid)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   color: "white",
-  padding: theme.spacing(1),
   [theme.breakpoints.down("sm")]: {
     display: "none",
   },
@@ -42,7 +34,7 @@ const SocialIconBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ContentBox = styled(Box)(({ theme }) => ({
+const ContentBox = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -51,15 +43,6 @@ const ContentBox = styled(Box)(({ theme }) => ({
 
 const ActionButton = styled(IconButton)(() => ({
   color: "#FFFFFF",
-  cursor: "pointer",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: 50,
-  height: 50,
-  margin: "0 20",
-  marginRight: "20",
-  borderRadius: "50%",
 }));
 
 export default function Home() {
@@ -78,10 +61,12 @@ export default function Home() {
             michelle.rivera@example.com
           </ContentBox>
         </ContentBox>
-        <Typography>Follow us and get a chance to win 80% off</Typography>
+        <Hidden mdDown>
+          <Typography>Follow us and get a chance to win 80% off</Typography>
+        </Hidden>
         <SocialIconBox>
           <ContentBox>
-            Follow Us:
+            Follow Us :{" "}
             <ActionButton>
               <InstagramIcon />
             </ActionButton>
